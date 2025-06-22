@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tailwind CSS Layout</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+
+  <header class="bg-white shadow">
+    <div class="container mx-auto px-6 py-8">
+      <h1 class="text-3xl font-bold text-gray-800">Our Featured Products</h1>
+      <p class="mt-2 text-gray-600">Check out the latest additions to our store.</p>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-10">
+    <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+        <img src="" alt="Product 1" class="w-full">
+        <div class="p-6">
+          <h2 class="text-xl font-semibold text-gray-800">Product One</h2>
+          <p class="mt-4 text-gray-600">A brief description of Product One highlighting features and benefits.</p>
+          <button class="mt-6 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">Buy Now</button>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+        <img src="" alt="Product 2" class="w-full">
+        <div class="p-6">
+          <h2 class="text-xl font-semibold text-gray-800">Product Two</h2>
+          <p class="mt-4 text-gray-600">A brief description of Product Two highlighting features and benefits.</p>
+          <button class="mt-6 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">Buy Now</button>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+        <img src="" alt="Product 3" class="w-full">
+        <div class="p-6">
+          <h2 class="text-xl font-semibold text-gray-800">Product Three</h2>
+          <p class="mt-4 text-gray-600">A brief description of Product Three highlighting features and benefits.</p>
+          <button class="mt-6 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
