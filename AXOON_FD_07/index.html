@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Cards Layout</title>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-10">
+
+  <!-- ✅ Flex wrapper for cards with gap -->
+  <div class="flex flex-wrap gap-8">
+
+    <!-- ✅ Card Start -->
+    <div class="group relative w-64 h-80 bg-white rounded-2xl overflow-hidden shadow-md transition duration-300">
+
+      <!-- Vertical Label -->
+      <div class="absolute left-0 top-0 h-full w-8 transform -translate-x-full group-hover:translate-x-0 transition-all duration-500 ease-in-out z-10">
+        <div class="h-full w-full bg-black flex items-center justify-center">
+          <span class="text-white text-xs font-semibold uppercase tracking-wider" style="writing-mode: vertical-rl; transform: rotate(180deg);">
+            AIR ZOOM PEGASUS
+          </span>
+        </div>
+      </div>
+
+      <!-- Content Shifting -->
+      <div class="transform transition-all duration-500 ease-in-out group-hover:translate-x-6 px-4">
+
+        <!-- Image -->
+        <div class="flex items-center justify-center h-32 mt-6">
+          <img
+            src="sneaker1.png"
+            alt="Shoe"
+            class="w-48 transition-transform duration-500 transform group-hover:rotate-[30deg] h-[120px]"
+          />
+        </div>
+
+        <!-- Price -->
+        <div class="text-center mt-12">
+          <p class="text-red-500 line-through text-sm">$900.00</p>
+          <p class="text-black font-bold text-lg">$749.00</p>
+        </div>
+
+        <!-- Icons -->
+        <div class="flex justify-around items-center mt-4 px-2">
+          <button class="text-gray-600 hover:text-red-500">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 18.343l-6.828-6.829a4 4 0 010-5.656z"/>
+            </svg>
+          </button>
+          <button class="text-gray-600 hover:text-black">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-2 8m12-8l2 8M10 21h4"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+    <!-- ✅ Card End -->
+
+    <!-- ✅ Card Start -->
+    <div class="group relative w-64 h-80 bg-white rounded-2xl overflow-hidden shadow-md transition duration-300">
+
+      <!-- Vertical Label -->
+      <div class="absolute left-0 top-0 h-full w-8 transform -translate-x-full group-hover:translate-x-0 transition-all duration-500 ease-in-out z-10">
+        <div class="h-full w-full bg-black flex items-center justify-center">
+          <span class="text-white text-xs font-semibold uppercase tracking-wider" style="writing-mode: vertical-rl; transform: rotate(180deg);">
+            AIR ZOOM PEGASUS
+          </span>
+        </div>
+      </div>
+
+      <!-- Content Shifting -->
+      <div class="transform transition-all duration-500 ease-in-out group-hover:translate-x-6 px-4">
+
+        <!-- Image -->
+        <div class="flex items-center justify-center h-32 mt-6">
+          <img
+            src="sneaker1.png"
+            alt="Shoe"
+            class="w-48 transition-transform duration-500 transform group-hover:rotate-[30deg] h-[120px]"
+          />
+        </div>
+
+        <!-- Price -->
+        <div class="text-center mt-12">
+          <p class="text-red-500 line-through text-sm">$900.00</p>
+          <p class="text-black font-bold text-lg">$749.00</p>
+        </div>
+
+        <!-- Icons -->
+        <div class="flex justify-around items-center mt-4 px-2">
+          <button class="text-gray-600 hover:text-red-500">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 18.343l-6.828-6.829a4 4 0 010-5.656z"/>
+            </svg>
+          </button>
+          <button class="text-gray-600 hover:text-black">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-2 8m12-8l2 8M10 21h4"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+    <!-- ✅ Card End -->
+
+    <!-- ✅ Card Start -->
+    <div class="group relative w-64 h-80 bg-white rounded-2xl overflow-hidden shadow-md transition duration-300">
+
+      <!-- Vertical Label -->
+      <div class="absolute left-0 top-0 h-full w-8 transform -translate-x-full group-hover:translate-x-0 transition-all duration-500 ease-in-out z-10">
+        <div class="h-full w-full bg-black flex items-center justify-center">
+          <span class="text-white text-xs font-semibold uppercase tracking-wider" style="writing-mode: vertical-rl; transform: rotate(180deg);">
+            AIR ZOOM PEGASUS
+          </span>
+        </div>
+      </div>
+
+      <div class="transform transition-all duration-500 ease-in-out group-hover:translate-x-6 px-4">
+
+        <!-- Image -->
+        <div class="flex items-center justify-center h-32 mt-6">
+          <img
+            src="sneaker1.png"
+            alt="Shoe"
+            class="w-48 transition-transform duration-500 transform group-hover:rotate-[30deg] h-[120px]"
+          />
+        </div>
+
+        <!-- Price -->
+        <div class="text-center mt-12">
+          <p class="text-red-500 line-through text-sm">$900.00</p>
+          <p class="text-black font-bold text-lg">$749.00</p>
+        </div>
+
+        <!-- Icons -->
+        <div class="flex justify-around items-center mt-4 px-2">
+          <button class="text-gray-600 hover:text-red-500">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 18.343l-6.828-6.829a4 4 0 010-5.656z"/>
+            </svg>
+          </button>
+          <button class="text-gray-600 hover:text-black">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-2 8m12-8l2 8M10 21h4"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+    <!-- ✅ Card End -->
+
+    <!-- ✅ Card Start -->
+    <div class="group relative w-64 h-80 bg-white rounded-2xl overflow-hidden shadow-md transition duration-300">
+
+      <!-- Vertical Label -->
+      <div class="absolute left-0 top-0 h-full w-8 transform -translate-x-full group-hover:translate-x-0 transition-all duration-500 ease-in-out z-10">
+        <div class="h-full w-full bg-black flex items-center justify-center">
+          <span class="text-white text-xs font-semibold uppercase tracking-wider" style="writing-mode: vertical-rl; transform: rotate(180deg);">
+            AIR ZOOM PEGASUS
+          </span>
+        </div>
+      </div>
+
+      <!-- Content Shifting -->
+      <div class="transform transition-all duration-500 ease-in-out group-hover:translate-x-6 px-4">
+
+        <!-- Image -->
+        <div class="flex items-center justify-center h-32 mt-6">
+          <img
+            src="sneaker1.png"
+            alt="Shoe"
+            class="w-48 transition-transform duration-500 transform group-hover:rotate-[30deg] h-[120px]"
+          />
+        </div>
+
+        <!-- Price -->
+        <div class="text-center mt-12">
+          <p class="text-red-500 line-through text-sm">$900.00</p>
+          <p class="text-black font-bold text-lg">$749.00</p>
+        </div>
+
+        <!-- Icons -->
+        <div class="flex justify-around items-center mt-4 px-2">
+          <button class="text-gray-600 hover:text-red-500">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 18.343l-6.828-6.829a4 4 0 010-5.656z"/>
+            </svg>
+          </button>
+          <button class="text-gray-600 hover:text-black">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-2 8m12-8l2 8M10 21h4"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+    <!-- ✅ Card End -->
+
+
+  </div>
+
+</body>
+</html>
