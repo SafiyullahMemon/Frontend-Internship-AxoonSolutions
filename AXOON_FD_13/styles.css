@@ -1,0 +1,595 @@
+/* Universal Styles & Base Theme */
+:root {
+    /* Light Theme Variables */
+    --bg-color-light: #f0f2f5;
+    --card-bg-light: rgba(255, 255, 255, 0.95);
+    --text-color-light: #333;
+    --secondary-text-light: #777;
+    --highlight-color-light: #4CAF50; /* Primary green */
+    --input-bg-light: #f8f9fa;
+    --input-border-light: #ddd;
+    --card-shadow-light: 0 20px 50px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.08); /* More pronounced */
+    --border-light: rgba(255, 255, 255, 0.4); /* Slightly stronger border */
+    --overlay-color-light: rgba(0, 0, 0, 0.1);
+
+    /* Dark Theme Variables */
+    --bg-color-dark: #1a1a1a; /* Deeper dark background */
+    --card-bg-dark: rgba(29, 30, 31, 0.95); /* Slightly darker card */
+    --text-color-dark: #eeeeee;
+    --secondary-text-dark: #aaaaaa;
+    --highlight-color-dark: #76ff03; /* A bright green for dark theme */
+    --input-bg-dark: #3a3a3a; /* Darker input background */
+    --input-border-dark: #555;
+    --card-shadow-dark: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 0, 0, 0.3); /* Stronger dark shadow */
+    --border-dark: rgba(0, 0, 0, 0.6); /* Stronger dark border */
+    --overlay-color-dark: rgba(0, 0, 0, 0.3); /* Darker overlay */
+
+    /* General */
+    --border-radius-large: 20px;
+    --border-radius-medium: 10px;
+    --transition-speed: 0.4s ease-in-out;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body { /* Ensure html also takes full height */
+    height: 100%;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Crucial for full-page background */
+    transition: background-image 1.5s ease-in-out, background-color var(--transition-speed);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; /* Ensure background doesn't tile */
+    color: var(--text-color-light); /* Default text color */
+    overflow: hidden; /* Prevent scrollbar from background image changes */
+    position: relative; /* For overlay */
+}
+
+/* Background Overlay for better text readability on busy images */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay-color-light); /* Subtle dark overlay */
+    z-index: -1; /* Place behind content */
+    transition: background-color var(--transition-speed);
+}
+
+/* Theme Switching */
+body.light-theme {
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+}
+
+body.dark-theme {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+}
+
+body.dark-theme::before { /* Adjust overlay for dark theme */
+    background-color: var(--overlay-color-dark);
+}
+
+/* Dynamic Backgrounds (More specific and varied images) */
+/* Day - Clear */
+body.bg-day.bg-clear { background-image: url('https://images.unsplash.com/photo-1547702812-a169dc3484f2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); }
+/* Day - Clouds */
+body.bg-day.bg-clouds { background-image: url('https://images.unsplash.com/photo-1533923055307-28d8ed27d425?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); }
+/* Day - Rain */
+body.bg-day.bg-rain { background-image: url('https://images.unsplash.com/photo-1498104595825-f761413155be?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); }
+/* Day - Snow */
+body.bg-day.bg-snow { background-image: url('https://images.unsplash.com/photo-1510867451042-32a26c04fdfa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); }
+/* Day - Drizzle/Thunderstorm */
+body.bg-day.bg-drizzle, body.bg-day.bg-thunderstorm { background-image: url('https://images.unsplash.com/photo-1549725807-ca253c3933ae?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); }
+/* Day - Mist/Fog/Haze */
+body.bg-day.bg-mist, body.bg-day.bg-fog, body.bg-day.bg-haze { background-image: url('https://images.unsplash.com/photo-1579737150035-18868f7f7b2c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); }
+
+/* Night - Clear */
+body.bg-night.bg-clear { background-image: url('https://images.unsplash.com/photo-1472506263884-90e67b2d0752?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); }
+/* Night - Clouds */
+body.bg-night.bg-clouds { background-image: url('https://images.unsplash.com/photo-1506509176313-9a3d4f1839e9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); }
+/* Night - Rain */
+body.bg-night.bg-rain { background-image: url('https://images.unsplash.com/photo-1534954784930-b3b3a3d24075?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); }
+/* Night - Snow */
+body.bg-night.bg-snow { background-image: url('https://images.unsplash.com/photo-1517204481358-82e7b8f64584?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); }
+/* Night - Drizzle/Thunderstorm */
+body.bg-night.bg-drizzle, body.bg-night.bg-thunderstorm { background-image: url('https://images.unsplash.com/photo-1522204961138-07ee1d7e3a34?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); }
+/* Night - Mist/Fog/Haze */
+body.bg-night.bg-mist, body.bg-night.bg-fog, body.bg-night.bg-haze { background-image: url('https://images.unsplash.com/photo-1502691768652-167825d10a26?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); }
+
+/* Default / Fallback */
+body.bg-default { background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf96132e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); }
+
+/* Main Wrapper for overall centering and padding */
+.main-wrapper {
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 40px); /* Adjust for padding */
+}
+
+/* Weather Card Container */
+.weather-card-container {
+    background-color: var(--card-bg-light);
+    padding: 30px;
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--card-shadow-light);
+    width: 95%; /* Responsive width */
+    max-width: 750px; /* Max width for desktop view */
+    text-align: center;
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border-light);
+    transition: background-color var(--transition-speed), box-shadow var(--transition-speed), border-color var(--transition-speed), color var(--transition-speed);
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Stack children vertically overall */
+    align-items: center; /* Center items horizontally within the card */
+}
+
+body.dark-theme .weather-card-container {
+    background-color: var(--card-bg-dark);
+    box-shadow: var(--card-shadow-dark);
+    border: 1px solid var(--border-dark);
+}
+
+.app-title {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 25px;
+    letter-spacing: -0.5px;
+    color: var(--highlight-color-light);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.05);
+    transition: color var(--transition-speed);
+}
+
+body.dark-theme .app-title {
+    color: var(--highlight-color-dark);
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 1.8em;
+    cursor: pointer;
+    color: var(--secondary-text-light);
+    transition: color var(--transition-speed), transform 0.2s ease;
+    z-index: 10;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    color: var(--text-color-light);
+}
+
+body.dark-theme .theme-toggle {
+    color: var(--secondary-text-dark);
+}
+
+body.dark-theme .theme-toggle:hover {
+    color: var(--text-color-dark);
+}
+
+/* Search Box */
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    width: 90%; /* Take up more width */
+    max-width: 450px; /* Limit search box width */
+}
+
+.search-box input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid var(--input-border-light);
+    border-radius: var(--border-radius-medium);
+    font-size: 0.9em;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: var(--input-bg-light);
+    color: var(--text-color-light);
+    font-family: 'Montserrat', sans-serif;
+}
+
+body.dark-theme .search-box input {
+    background-color: var(--input-bg-dark);
+    border-color: var(--input-border-dark);
+    color: var(--text-color-dark);
+}
+
+.search-box input::placeholder {
+    color: var(--secondary-text-light);
+}
+
+body.dark-theme .search-box input::placeholder {
+    color: var(--secondary-text-dark);
+}
+
+.search-box input:focus {
+    border-color: var(--highlight-color-light);
+    box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.2);
+}
+
+body.dark-theme .search-box input:focus {
+    border-color: var(--highlight-color-dark);
+    box-shadow: 0 0 0 4px rgba(118, 255, 3, 0.2);
+}
+
+.search-box button {
+    padding: 12px 20px;
+    background-color: var(--highlight-color-light);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-medium);
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+body.dark-theme .search-box button {
+    background-color: var(--highlight-color-dark);
+}
+
+.search-box button:hover {
+    background-color: #45a049; /* Darker green */
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-theme .search-box button:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Weather Display Area - REVISED FOR HORIZONTAL/FLEX LAYOUT */
+.weather-display {
+    border-top: 1px solid rgba(0, 0, 0, 0.1); /* Subtle separator */
+    padding-top: 25px;
+    text-align: center;
+    transition: opacity 0.6s ease-in-out, max-height 0.6s ease-in-out, padding-top 0.6s ease-in-out;
+    opacity: 1; /* Default visible state */
+    max-height: 800px; /* Increased max-height for content visibility */
+    overflow: hidden;
+    
+    display: flex; /* Make it a flex container */
+    flex-direction: row; /* Default to row */
+    align-items: flex-start; /* Align items to the top */
+    justify-content: center; /* Center content horizontally */
+    flex-wrap: wrap; /* Allow wrapping onto new lines if space is limited */
+    gap: 20px; /* Gap between summary and details grid */
+    width: 100%; /* Ensure it takes full width of parent */
+}
+
+body.dark-theme .weather-display {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.weather-display.hidden {
+    opacity: 0;
+    max-height: 0; /* Collapse height */
+    padding-top: 0;
+    margin-bottom: 0;
+}
+
+/* Weather Summary - REVISED FOR FLEX ITEM BEHAVIOR */
+.weather-summary {
+    margin-bottom: 0; /* Remove bottom margin for flex layout */
+    text-align: center;
+    flex: 1 1 250px; /* Flex item: allow growth/shrink, base width 250px */
+    min-width: 200px; /* Minimum width to prevent content squash */
+    padding: 0 10px; /* Add some horizontal padding */
+}
+
+#city-name {
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+.date-time {
+    font-size: 0.85em;
+    color: var(--secondary-text-light);
+    margin-bottom: 10px;
+    transition: color var(--transition-speed);
+}
+
+body.dark-theme .date-time {
+    color: var(--secondary-text-dark);
+}
+
+#weather-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 5px;
+}
+
+.temperature {
+    font-size: 3em;
+    margin-bottom: 5px;
+}
+
+.description {
+    font-size: 1.1em;
+    margin-bottom: 0;
+}
+
+/* Weather Details Grid - REVISED FOR FLEX ITEM BEHAVIOR AND SMALLER ITEMS */
+.weather-details-grid {
+    display: grid;
+    /* Default to 2 columns on mobile if space allows */
+    grid-template-columns: repeat(2, minmax(90px, 1fr)); /* Force 2 columns when space is enough */
+    gap: 10px; /* Smaller gap */
+    margin-top: 0; /* Remove top margin as flex gap handles spacing */
+    padding-top: 0; /* Remove top padding if not needed for visual separation */
+    border-top: none; /* Remove border if not needed for visual separation when horizontal */
+    flex: 1 1 300px; /* Flex item: allow growth/shrink, base width 300px */
+    min-width: 250px; /* Minimum width for the grid */
+}
+
+body.dark-theme .weather-details-grid {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.detail-item {
+    background-color: var(--input-bg-light);
+    padding: 10px;
+    border-radius: var(--border-radius-medium);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+body.dark-theme .detail-item {
+    background-color: var(--input-bg-dark);
+}
+
+.detail-item:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.detail-item i {
+    font-size: 1.5em;
+}
+
+.detail-item p {
+    font-size: 0.75em;
+}
+
+.detail-item span {
+    font-size: 0.9em;
+}
+
+/* Message Display (Loading/Error) */
+.message-display {
+    margin-top: 15px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#status-message {
+    font-size: 1em;
+    color: var(--secondary-text-light);
+    text-align: center;
+    min-height: 24px;
+    transition: color var(--transition-speed);
+}
+
+body.dark-theme #status-message {
+    color: var(--secondary-text-dark);
+}
+
+/* Loading Animation (Text based) */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blinking-cursor {
+    from, to { border-right-color: transparent }
+    50% { border-right-color: var(--highlight-color-light); }
+}
+
+
+.loading-text {
+    font-family: 'monospace', sans-serif;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--highlight-color-light);
+    animation: typing 2s steps(20, end) infinite alternate,
+               blinking-cursor 0.75s step-end infinite;
+    max-width: 0;
+    color: var(--text-color-light);
+    transition: color var(--transition-speed);
+}
+
+/* Override cursor color for dark theme via direct selector */
+body.dark-theme .loading-text {
+    border-right-color: var(--highlight-color-dark);
+    color: var(--text-color-dark);
+}
+
+/* Error Message Specific */
+#status-message.error {
+    color: #dc3545;
+    font-weight: 500;
+    background-color: rgba(220, 53, 69, 0.1);
+    padding: 10px 15px;
+    border-radius: var(--border-radius-medium);
+    border: 1px solid rgba(220, 53, 69, 0.3);
+}
+
+/* Responsive Adjustments - FINAL REVISION */
+
+/* Default (Mobile-first, smaller phones up to 480px) */
+@media (max-width: 480px) {
+    .main-wrapper {
+        padding: 10px;
+    }
+    .weather-card-container {
+        padding: 15px;
+        border-radius: var(--border-radius-medium);
+        width: 100%; /* Take full width on very small screens */
+    }
+    .app-title {
+        font-size: 1.6em;
+        margin-bottom: 10px;
+    }
+    .theme-toggle {
+        font-size: 1.2em;
+        top: 10px;
+        right: 10px;
+    }
+    .search-box {
+        flex-direction: column;
+        gap: 5px;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    .search-box input,
+    .search-box button {
+        padding: 8px 10px;
+        font-size: 0.8em;
+    }
+    .weather-display {
+        padding-top: 15px;
+        gap: 15px;
+        flex-direction: column; /* Ensure stacked */
+        align-items: center; /* Center items in column */
+    }
+    .weather-summary,
+    .weather-details-grid {
+        flex: 1 1 100%; /* Take full width */
+        max-width: 100%; /* Ensure max width is 100% */
+        padding: 0 5px;
+    }
+    #city-name {
+        font-size: 1.5em;
+    }
+    .temperature {
+        font-size: 2.5em;
+    }
+    .description {
+        font-size: 0.9em;
+    }
+    #weather-icon {
+        width: 60px;
+        height: 60px;
+    }
+    .weather-details-grid {
+        grid-template-columns: 1fr; /* Force single column for details on tiny screens */
+        gap: 8px;
+    }
+    .detail-item {
+        padding: 6px;
+        font-size: 0.65em;
+    }
+    .detail-item i {
+        font-size: 1.2em;
+    }
+    .detail-item span {
+        font-size: 0.8em;
+    }
+    #status-message {
+        font-size: 0.85em;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) { /* Larger phones (landscape) and small tablets */
+    .weather-card-container {
+        max-width: 600px; /* Allow wider card */
+        padding: 25px;
+    }
+    .app-title {
+        font-size: 2.2em;
+        margin-bottom: 20px;
+    }
+    .search-box {
+        width: 90%;
+        max-width: 400px;
+    }
+    .weather-display {
+        flex-direction: row; /* Arrange summary and grid horizontally */
+        flex-wrap: wrap; /* Allow wrapping if needed */
+        justify-content: space-around; /* Distribute space */
+        gap: 15px; /* Space between summary and grid */
+        padding-top: 20px;
+    }
+    .weather-summary {
+        flex: 1 1 200px; /* Base width for summary */
+        min-width: 180px; /* Ensure it doesn't get too small */
+    }
+    .weather-details-grid {
+        flex: 1 1 300px; /* Base width for details grid */
+        min-width: 250px; /* Ensure it doesn't get too small */
+        grid-template-columns: repeat(2, 1fr); /* Force 2 columns for details on these screens */
+        gap: 10px;
+        border-top: none; /* Remove border when side-by-side */
+        padding-top: 0; /* Remove padding when side-by-side */
+    }
+    #city-name {
+        font-size: 2em;
+    }
+    .temperature {
+        font-size: 3em;
+    }
+    .description {
+        font-size: 1.1em;
+    }
+    #weather-icon {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+@media (min-width: 769px) { /* Desktops and larger tablets */
+    .weather-card-container {
+        max-width: 750px; /* Max width for full desktop view */
+        padding: 40px;
+    }
+    .weather-display {
+        flex-direction: row; /* Horizontal layout */
+        flex-wrap: nowrap; /* No wrapping unless forced */
+        justify-content: space-around;
+        gap: 30px; /* Larger gap */
+    }
+    .weather-summary {
+        flex: 1 1 250px; /* Base width for summary */
+        min-width: 200px;
+        margin-bottom: 0;
+    }
+    .weather-details-grid {
+        flex: 1 1 350px; /* Base width for grid */
+        min-width: 300px;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Adaptive, wider columns */
+        gap: 15px;
+        border-top: 1px dashed rgba(0, 0, 0, 0.1); /* Add border back */
+        padding-top: 25px; /* Add padding back */
+    }
+}

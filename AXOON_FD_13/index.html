@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherSphere - Your World's Weather</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="light-theme"> <div class="main-wrapper">
+        <div class="weather-card-container">
+            <div class="theme-toggle" id="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+
+            <h1 class="app-title">SamWeather</h1>
+
+            <form id="weather-form" class="search-box">
+                <input type="text" id="city-input" placeholder="Enter city name..." autocomplete="off">
+                <button type="submit" id="get-weather-btn">
+                    <i class="fas fa-search"></i> Get Weather
+                </button>
+            </form>
+
+            <div id="weather-display" class="weather-display hidden">
+                <div class="weather-summary">
+                    <h2 id="city-name"></h2>
+                    <p id="date-time" class="date-time"></p>
+                    <img id="weather-icon" src="" alt="Weather Icon" class="fade-in">
+                    <p id="temperature" class="temperature"></p>
+                    <p id="description" class="description"></p>
+                </div>
+                <div class="weather-details-grid">
+                    <div class="detail-item">
+                        <i class="fas fa-tint"></i>
+                        <p>Humidity</p>
+                        <span id="humidity"></span>%
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-wind"></i>
+                        <p>Wind Speed</p>
+                        <span id="wind-speed"></span> m/s
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-cloud"></i>
+                        <p>Clouds</p>
+                        <span id="clouds"></span>%
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-gauge-high"></i>
+                        <p>Pressure</p>
+                        <span id="pressure"></span> hPa
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-sun"></i>
+                        <p>Sunrise</p>
+                        <span id="sunrise"></span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-moon"></i>
+                        <p>Sunset</p>
+                        <span id="sunset"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="message-display" class="message-display">
+                <p id="status-message"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
