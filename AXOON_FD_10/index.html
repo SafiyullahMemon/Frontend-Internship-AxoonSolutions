@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Show/Hide Cards</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Changed font */
+      text-align: center;
+      padding: 40px; /* Increased padding */
+      background-color: #e0f2f7; /* Lighter, cooler background */
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .button-group { /* New container for buttons */
+        margin-bottom: 30px;
+        display: flex;
+        gap: 15px; /* Space between the two main buttons */
+    }
+
+    .btn {
+      padding: 12px 25px; /* Slightly larger buttons */
+      font-size: 17px;
+      cursor: pointer;
+      border: none;
+      background-color: #3f51b5; /* Deeper blue for main button */
+      color: white;
+      border-radius: 8px; /* More rounded corners */
+      transition: background-color 0.3s ease, transform 0.2s ease; /* Added transition */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Added subtle shadow */
+    }
+
+    .btn:hover {
+      background-color: #303f9f; /* Darken on hover */
+      transform: translateY(-2px); /* Lift effect on hover */
+    }
+
+    .hide-all-btn { /* New style for the hide all button */
+        background-color: #ef4444; /* A distinct red for hide all */
+    }
+
+    .hide-all-btn:hover {
+        background-color: #dc2626;
+    }
+
+
+    .card-container {
+      display: flex; /* Use flexbox for card layout */
+      flex-wrap: wrap; /* Allow cards to wrap */
+      justify-content: center; /* Center cards horizontally */
+      gap: 25px; /* Space between cards */
+      max-width: 1000px; /* Max width for the card layout */
+      width: 100%;
+    }
+
+    .card {
+      background: #ffffff; /* Pure white background for cards */
+      border-radius: 12px; /* Even more rounded corners */
+      padding: 25px; /* Increased padding */
+      width: 320px; /* Slightly wider cards */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Stronger, softer shadow */
+      transition: all 0.4s ease-in-out; /* Smoother hide/show transition */
+      display: flex; /* Use flex for internal card alignment */
+      flex-direction: column;
+      justify-content: space-between; /* Push button to bottom */
+    }
+
+    .card h3 {
+      color: #3f51b5; /* Match heading color with main button */
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      color: #555; /* Softer text color */
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .hide-btn {
+      background-color: #e57373; /* Softer red for hide button */
+      margin-top: auto; /* Push button to the bottom of the card */
+      align-self: center; /* Center the hide button */
+      width: fit-content; /* Make button only as wide as content */
+      padding: 10px 20px;
+      font-size: 15px;
+      border-radius: 6px;
+      box-shadow: none; /* Remove shadow for inner buttons */
+    }
+
+    .hide-btn:hover {
+      background-color: #d32f2f; /* Darker red on hover */
+      transform: translateY(-1px);
+    }
+
+    .hidden {
+      opacity: 0; /* Fade out effect */
+      transform: scale(0.8); /* Shrink effect */
+      height: 0;
+      padding: 0;
+      margin: 0;
+      overflow: hidden; /* Hide overflow content during transition */
+      /* display: none; */ /* We'll use this after transition if truly hidden */
+    }
+
+    /* A class to completely remove after animation for accessibility/flow */
+    .completely-hidden {
+        display: none;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="button-group">
+    <button id="showAllBtn" class="btn">Show All Cards</button>
+    <button id="hideAllBtn" class="btn hide-all-btn">Hide All Cards</button> </div>
+
+  <div class="card-container">
+    <div class="card" id="card1">
+      <h3>Card 1: Discovery</h3>
+      <p>Explore the possibilities and hidden gems within this vibrant platform. Every click opens a new door.</p>
+      <button class="btn hide-btn">Hide This Card</button>
+    </div>
+
+    <div class="card" id="card2">
+      <h3>Card 2: Innovation</h3>
+      <p>Witness the cutting edge of design and functionality. We're constantly evolving to bring you the best experience.</p>
+      <button class="btn hide-btn">Hide This Card</button>
+    </div>
+
+    <div class="card" id="card3">
+      <h3>Card 3: Connection</h3>
+      <p>Join a community where ideas flourish and creativity knows no bounds. Connect, share, and grow together.</p>
+      <button class="btn hide-btn">Hide This Card</button>
+    </div>
+  </div>
+
+  <script>
+    // Hide individual cards
+    const hideButtons = document.querySelectorAll('.hide-btn');
+    hideButtons.forEach(button => {
+      button.addEventListener('click', function () {
+        const card = this.closest('.card');
+        // Add hidden class for transition
+        card.classList.add('hidden');
+        // After transition, completely hide it
+        card.addEventListener('transitionend', function handler() {
+            card.classList.add('completely-hidden');
+            card.removeEventListener('transitionend', handler); // Remove listener after first transition
+        });
+      });
+    });
+
+    // Show all cards
+    document.getElementById('showAllBtn').addEventListener('click', function () {
+      const allCards = document.querySelectorAll('.card');
+      allCards.forEach(card => {
+        // Remove completely-hidden first, then hidden for smooth re-appearance
+        card.classList.remove('completely-hidden');
+        // A slight delay might be needed for the transition to re-engage if display:none was used
+        // For opacity/transform, removing 'hidden' is usually enough
+        setTimeout(() => {
+             card.classList.remove('hidden');
+        }, 10); // Small delay
+      });
+    });
+
+    // --- New Functionality: Hide All Cards ---
+    document.getElementById('hideAllBtn').addEventListener('click', function () {
+      const allCards = document.querySelectorAll('.card');
+      allCards.forEach(card => {
+        card.classList.add('hidden');
+        // Ensure that if it's already completely hidden, we don't re-add the transitionend listener
+        if (!card.classList.contains('completely-hidden')) {
+            card.addEventListener('transitionend', function handler() {
+                card.classList.add('completely-hidden');
+                card.removeEventListener('transitionend', handler);
+            }, { once: true }); // Use { once: true } for a simpler listener that removes itself
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

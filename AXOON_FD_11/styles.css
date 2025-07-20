@@ -1,0 +1,311 @@
+/* Basic Reset & Font */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Professional Google Font */
+    background: linear-gradient(135deg, #1c1c1c 0%, #3a3a3a 100%); /* Dark gradient background */
+    color: #e0e0e0; /* Light text color for contrast */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top with padding */
+    padding-top: 60px; /* More top padding */
+    min-height: 100vh;
+}
+
+/* Main Container */
+.todo-container {
+    background: #2b2b2b; /* Slightly lighter dark background for container */
+    padding: 35px; /* Increased padding */
+    border-radius: 15px; /* More rounded corners */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); /* Deeper, softer shadow */
+    width: 100%;
+    max-width: 550px; /* Slightly wider max-width */
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Subtle border */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #8bc34a; /* A vibrant green for the title */
+    font-weight: 700; /* Bolder title */
+    letter-spacing: 1px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Progress Bar Styling */
+.details {
+    margin-bottom: 25px;
+}
+
+#progressBarContainer { /* Renamed from progressBar to avoid confusion */
+    background: rgba(255, 255, 255, 0.1); /* Lighter background for empty bar */
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    height: 28px; /* Slightly taller bar */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+#progress {
+    background: linear-gradient(90deg, #689f38 0%, #8bc34a 100%); /* Green gradient */
+    height: 100%;
+    width: 0;
+    transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother transition */
+    border-radius: 12px; /* Ensure rounded corners on fill */
+}
+
+.stat-number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff; /* White text for numbers */
+    font-weight: 600; /* Bolder numbers */
+    font-size: 15px;
+    z-index: 1;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Input Group */
+.input-group {
+    display: flex;
+    gap: 12px; /* Slightly more space */
+    margin-bottom: 30px;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 14px 18px; /* More padding */
+    border-radius: 8px; /* More rounded */
+    border: 1px solid #4a4a4a; /* Darker border */
+    background-color: #3b3b3b; /* Darker input background */
+    color: #e0e0e0; /* Light text color */
+    font-size: 16px;
+    outline: none; /* Remove default outline */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-group input::placeholder {
+    color: #9e9e9e; /* Lighter placeholder text */
+}
+
+.input-group input:focus {
+    border-color: #8bc34a; /* Highlight on focus */
+    box-shadow: 0 0 0 3px rgba(139, 195, 74, 0.3); /* Soft glow */
+}
+
+.input-group button {
+    padding: 14px 25px; /* Larger button */
+    background-color: #8bc34a; /* Match progress bar green */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.input-group button:hover {
+    background-color: #689f38; /* Darker green on hover */
+    transform: translateY(-2px);
+}
+
+.input-group button:active {
+    transform: translateY(0);
+}
+
+/* Task List */
+ul {
+    list-style-type: none;
+    padding: 0;
+    max-height: 400px; /* Limit height for scrollable list */
+    overflow-y: auto; /* Enable scrolling */
+    padding-right: 5px; /* Space for scrollbar */
+}
+
+/* Custom Scrollbar (for webkit browsers) */
+ul::-webkit-scrollbar {
+    width: 8px;
+}
+
+ul::-webkit-scrollbar-track {
+    background: #3b3b3b;
+    border-radius: 10px;
+}
+
+ul::-webkit-scrollbar-thumb {
+    background: #5a5a5a;
+    border-radius: 10px;
+}
+
+ul::-webkit-scrollbar-thumb:hover {
+    background: #7a7a7a;
+}
+
+li {
+    background: #3b3b3b; /* Darker background for list items */
+    padding: 15px 20px; /* More padding */
+    margin-bottom: 12px; /* More space between items */
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease-in-out; /* Smoother transitions for completed/hover */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border-left: 5px solid transparent; /* Border for status */
+}
+
+li:last-child {
+    margin-bottom: 0; /* No margin on last item */
+}
+
+li:hover {
+    background: #4a4a4a; /* Slightly lighter on hover */
+    transform: translateY(-2px); /* Subtle lift */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Checkbox Styling */
+li input[type="checkbox"] {
+    appearance: none; /* Hide default checkbox */
+    width: 22px;
+    height: 22px;
+    border: 2px solid #6a6a6a; /* Darker border */
+    border-radius: 5px;
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+    margin-right: 15px;
+    transition: all 0.2s ease;
+}
+
+li input[type="checkbox"]::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    transform: scale(0);
+    transition: transform 0.2s ease-in-out;
+    box-shadow: inset 1em 1em #8bc34a; /* Fill color when checked */
+    border-radius: 3px;
+}
+
+li input[type="checkbox"]:checked {
+    border-color: #8bc34a; /* Border color when checked */
+    background-color: rgba(139, 195, 74, 0.1); /* Light fill when checked */
+}
+
+li input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+/* Task Text Styling */
+.task-text {
+    flex: 1;
+    margin-right: 15px;
+    font-size: 17px;
+    color: #e0e0e0;
+    word-break: break-word; /* Prevent long words from overflowing */
+    line-height: 1.4;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+/* Completed Task Styles */
+li.completed { /* New class for completed tasks */
+    background: #222222; /* Darker background for completed */
+    border-left-color: #8bc34a; /* Green border for completed */
+    opacity: 0.8; /* Slightly dim completed tasks */
+}
+
+li.completed .task-text {
+    text-decoration: line-through;
+    color: #9e9e9e; /* Gray out completed text */
+}
+
+/* Button Group */
+.buttons {
+    display: flex;
+    gap: 10px; /* More space between action buttons */
+}
+
+.buttons button {
+    border: none;
+    padding: 8px 15px; /* Larger padding for action buttons */
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.edit-btn {
+    background-color: #03a9f4; /* A nice blue for edit */
+    color: white;
+}
+
+.delete-btn {
+    background-color: #f44336; /* A slightly softer red for delete */
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: #0288d1; /* Darker blue on hover */
+    transform: translateY(-1px);
+}
+
+.delete-btn:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+    transform: translateY(-1px);
+}
+
+/* Empty State Message */
+.empty-state {
+    text-align: center;
+    color: #9e9e9e;
+    font-style: italic;
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .todo-container {
+        padding: 25px;
+        margin: 20px; /* Add some margin on smaller screens */
+    }
+
+    .input-group {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .input-group button {
+        width: 100%;
+    }
+
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    li input[type="checkbox"] {
+        margin-bottom: 10px;
+    }
+
+    .task-text {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .buttons {
+        width: 100%;
+        justify-content: flex-end; /* Align buttons to the right */
+    }
+}
