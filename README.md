@@ -65,8 +65,7 @@ AXOON_FD_14/   # React + Tailwind CSS – Static personal profile page
 
 ## 🙏 Acknowledgements
 
-Special thanks to **Axoon Solutions** for the internship opportunity and guidance throughout the process.  
-Also thankful to the **Computer Science Department** for initiating and supporting this program.
+Special thanks to **Axoon Solutions** for the internship opportunity and guidance throughout the process.
 
 ---
 
