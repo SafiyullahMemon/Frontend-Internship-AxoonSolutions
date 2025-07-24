@@ -22,52 +22,58 @@ AXOON_FD_11/   # To-Do List App – Add, edit, and delete tasks (CRUD)
 AXOON_FD_12/   # API Integration – Fetch and display dummy posts using Promises  
 AXOON_FD_13/   # Weather App – Real-time weather data with OpenWeatherMap API  
 AXOON_FD_14/   # React + Tailwind CSS – Static personal profile page  
+```
 
-Each folder contains HTML/CSS code along with relevant image links and responsive layout updates.
+> Each folder contains HTML/CSS/JS files related to the topic and responsive layout updates.
 
 ---
 
 ## 🚀 Features Implemented
 
-* ✅ Responsive Header with navigation and mobile menu icon
-* ✅ Full Hero Section with promotional imagery
-* ✅ Carousel-based **Deals of the Month** with slide effect
-* ✅ Product **Grid System** for New Arrivals
-* ✅ Interactive category filters (UI only)
-* ✅ Highlighted Featured Collection with annotation
-* ✅ Service Features with FontAwesome Icons
-* ✅ Instagram-style horizontal scroll gallery
-* ✅ Testimonial Cards with user photos
-* ✅ Newsletter Subscription Form
-* ✅ Clean Footer with essential links
+- ✅ Responsive Header with navigation and mobile menu icon  
+- ✅ Full Hero Section with promotional imagery  
+- ✅ Carousel-based **Deals of the Month** with slide effect  
+- ✅ Product **Grid System** for New Arrivals  
+- ✅ Interactive category filters (UI only)  
+- ✅ Highlighted Featured Collection with annotation  
+- ✅ Service Features with FontAwesome Icons  
+- ✅ Instagram-style horizontal scroll gallery  
+- ✅ Testimonial Cards with user photos  
+- ✅ Newsletter Subscription Form  
+- ✅ Clean Footer with essential links  
 
 ---
 
 ## 🛠️ Tech Stack
-**Technology	Purpose**
-**HTML5	Markup for all pages**
-**Tailwind CSS	Utility-first responsive styling**
-**JavaScript (ES6)	DOM manipulation, logic, API handling**
-**Font Awesome	Iconography for UI**
-**Fetch API	API requests and Promise-based responses**
-**React + Vite	SPA for profile using components**
+
+| Technology        | Purpose                                 |
+|------------------|------------------------------------------|
+| **HTML5**        | Markup for all pages                     |
+| **Tailwind CSS** | Utility-first responsive styling         |
+| **JavaScript (ES6)** | DOM manipulation, logic, API handling  |
+| **Font Awesome** | Iconography for UI                       |
+| **Fetch API**    | API requests and Promise-based responses |
+| **React + Vite** | SPA for profile using components         |
 
 ---
 
 ## 🌐 Live Preview
 
-> *Coming soon* — deployed version will be hosted via GitHub Pages or Vercel.
+> **Coming soon** — deployed version will be hosted via **GitHub Pages** or **Vercel**.
 
 ---
 
 ## 🙏 Acknowledgements
 
-Special thanks to **Axoon Solutions** for the internship opportunity
+Special thanks to **Axoon Solutions** for the internship opportunity and guidance throughout the process.  
+Also thankful to the **Computer Science Department** for initiating and supporting this program.
 
 ---
 
 ## 👨‍💻 Author
 
-**Safiyullah Memon**
-Frontend Developer Intern @ Axoon Solutions
-📧 \[[safiyullah26@gmail.com](mailto:safiyullah26@gmail.com)]
+**Safiyullah Memon**  
+Frontend Developer Intern @ Axoon Solutions  
+📧 [safiyullah26@gmail.com](mailto:safiyullah26@gmail.com)
+
+---
